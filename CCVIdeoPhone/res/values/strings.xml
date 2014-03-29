@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The name for the app -->
+    <string name="app_name">VideoPhone</string>
+    
+    
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Activity1</string>
+    <string name="menu_settings">Settings</string>
+    
+    <!-- Button to go to the main menu -->
+    <string name="a2">Main Menu</string>
+    
+    <!-- Button going back -->
+    <string name="b1">Back</string>
+    <!-- Button to exit program -->
+    <string name="b2">Exit</string>
+    <string name="tt1">Background</string>
+    <string name="tt2">Sound</string>
+    <string name="tt3">Camera</string>
+    <string name="tt4">Settings</string>
+    <string name="skype_int">CallSkypeMod</string>
+	<string name="skype_org">CallSkypeOrg</string>
+
+</resources>
