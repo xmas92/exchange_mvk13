@@ -1,19 +1,23 @@
 package com.example.vp;
 
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.view.Menu;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 
 public class Home extends Activity {
 	
+	private static final int FIVE_SECONDS = 5 * 1000; // 5s * 1000 ms/s
+	private long fiveFingerDownTime = -1;
+	
 	// User profiles and id:s
 	String profile1 = "joni.baitar";
-	String profile2 = "";
+	String profile2 = "rob.rob342";
 	String profile3 = "";
 	String profile4 = "";
 	String profile5 = "";
@@ -23,6 +27,53 @@ public class Home extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
+		
+		//
+		findViewById(R.id.layout).setOnTouchListener(new OnTouchListener() {        
+
+			@Override
+			public boolean onTouch(View v, MotionEvent ev) {
+			    final int action = ev.getAction();
+			    
+			    
+			    switch (action & MotionEvent.ACTION_MASK) {
+			        case MotionEvent.ACTION_POINTER_DOWN:
+			        	
+			            if (ev.getPointerCount() == 5) {
+			                // We have five fingers touching, so start the timer
+			            	
+			                fiveFingerDownTime = System.currentTimeMillis();
+			                
+			            }
+			            break;
+
+			        case MotionEvent.ACTION_POINTER_UP:
+			            if (ev.getPointerCount() < 5) {
+			                // Fewer than five fingers, so reset the timer
+			                fiveFingerDownTime = -1;
+			            }
+			            final long now = System.currentTimeMillis();
+			            if (now - fiveFingerDownTime > FIVE_SECONDS && fiveFingerDownTime != -1) {
+			                // Five fingers have been down for 5 seconds!
+			                // TODO Do something
+			            	System.out.println("Five seconds has passed, an eternity awaits");
+			        		Intent intent = new Intent(Home.this, SettingsActivity.class);
+			        		Home.this.startActivity(intent);
+			            	System.out.println();
+			            }
+
+			            break;
+			    }
+
+			    return true;
+			}
+			});
+		
+		
+		
+		
+		
+		
 	}
 	//
 	//	@Override
@@ -35,6 +86,7 @@ public class Home extends Activity {
 
 	//Called when button is pressed
 	public void callSkypeView1 (View view){
+		
 		if(!isSkypeClientInstalled(this)){
 			goToMarket(this);
 		}

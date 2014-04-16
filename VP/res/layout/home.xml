@@ -16,37 +16,37 @@
         <ImageView
             android:id="@+id/uid1"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#ffff0000"
-            android:onClick="callSkype1"
+            android:onClick="callSkypeView1"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/uid2"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#169aff"
-            android:onClick="callSkype2"
+            android:onClick="callSkypeView2"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/uid3"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#ffff0000"
-            android:onClick="callSkype3"
+            android:onClick="callSkypeView3"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
 
@@ -59,37 +59,37 @@
         <ImageView
             android:id="@+id/uid4"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#169aff"
-            android:onClick="callSkype4"
+            android:onClick="callSkypeView4"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/uid5"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#ffff0000"
-            android:onClick="callSkype5"
+            android:onClick="callSkypeView5"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/uid6"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="280dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="#169aff"
-            android:onClick="callSkype6"
+            android:onClick="callSkypeView6"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
 
