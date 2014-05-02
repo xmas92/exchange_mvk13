@@ -18,7 +18,7 @@ import android.widget.ImageView;
 
 public class HomeActivity extends Activity {
 
-	private static final int FIVE_SECONDS = 1 * 1000; // 5s * 1000 ms/s
+	private static final int FIVE_SECONDS = 5 * 1000; // 5s * 1000 ms/s
 	private long fiveFingerDownTime = -1;
 
 	// User profiles and id:s
