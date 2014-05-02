@@ -27,7 +27,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 			+ COLUMN_POSITION + " integer not null," + COLUMN_IMAGE
 			+ " blob not null" + ");";
 	private static final String DATABASE_CREATE_KEYVALUESTORE = "create table "
-			+ TABLE_KEYVALUESTORE + "(" + COLUMN_KEY + " text not null, "
+			+ TABLE_KEYVALUESTORE + "(" + COLUMN_KEY + " text primary key not null, "
 			+ COLUMN_VALUE + " blob not null" + ");";
 
 	public SQLiteHelper(Context context) {

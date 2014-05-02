@@ -2,6 +2,10 @@ package com.example.app_mainproject;
 
 
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,19 +15,82 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
+import android.widget.ListView;
 
 public class Home extends Activity {
 
-	private static final int FIVE_SECONDS = 5 * 1000; // 5s * 1000 ms/s
+	private static final int FIVE_SECONDS = 1 * 1000; // 5s * 1000 ms/s
 	private long fiveFingerDownTime = -1;
 
 	// User profiles and id:s
-	String profile1 = "joni.baitar";
-	String profile2 = "rob.rob342";
+	String profile1 = "";
+	String profile2 = "";
 	String profile3 = "";
 	String profile4 = "";
 	String profile5 = "";
 	String profile6 = "";
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		DataStorage.Close();
+	}
+	
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		List<Contact> cl = DataStorage.GetAllContacts();
+		Collections.sort(cl);
+		int i = 0;
+		for (Contact c : cl) {
+			if (i >= 6) break;
+			ImageView v = GetListView(i);
+			SetString(i, c.getContactId());
+			v.setImageBitmap(c.getImage());
+			v.setVisibility(View.VISIBLE);
+			i++;
+		}
+		for (;i< 6;i++)
+			GetListView(i).setVisibility(View.INVISIBLE);
+	}
+	
+	private void SetString(int i, String s) {
+		switch (i) {
+		case 0:
+			profile1 = s;
+		case 1:
+			profile2 = s;
+		case 2:
+			profile3 = s;
+		case 3:
+			profile4 = s;
+		case 4:
+			profile5 = s;
+		case 5:
+			profile6 = s;
+		}
+	}
+	
+	private ImageView GetListView(int i) {
+		switch (i) {
+		case 0:
+			return (ImageView)findViewById(R.id.uid1);
+		case 1:
+			return (ImageView)findViewById(R.id.uid2);
+		case 2:
+			return (ImageView)findViewById(R.id.uid3);
+		case 3:
+			return (ImageView)findViewById(R.id.uid4);
+		case 4:
+			return (ImageView)findViewById(R.id.uid5);
+		case 5:
+			return (ImageView)findViewById(R.id.uid6);
+		}
+		return null;
+	}
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +123,13 @@ public class Home extends Activity {
 						// Fewer than five fingers, so reset the timer
 						fiveFingerDownTime = -1;
 					}
+					break;
+				case MotionEvent.ACTION_MOVE:
 					final long now = System.currentTimeMillis();
-					if (now - fiveFingerDownTime > FIVE_SECONDS && fiveFingerDownTime != -1) {
+					if (fiveFingerDownTime != -1 && now - fiveFingerDownTime > FIVE_SECONDS) {
 						// Five fingers have been down for 5 seconds!
 						// TODO Do something
+						fiveFingerDownTime = -1;
 						System.out.println("Five seconds has passed, an eternity awaits");
 						Intent intent = new Intent(Home.this, OptionsMenu.class);
 						startActivity(intent);
