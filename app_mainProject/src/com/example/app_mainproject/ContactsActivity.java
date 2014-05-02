@@ -3,7 +3,7 @@ package com.example.app_mainproject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+//import android.widget.TableLayout;
+//import android.widget.TableRow;
+//import android.widget.TextView;
 
 public class ContactsActivity extends Activity {
 
@@ -42,7 +42,7 @@ public class ContactsActivity extends Activity {
 		return this;
 	}
 	
-	ArrayList<Integer> idList = new ArrayList<Integer>(Arrays.asList(
+	ArrayList<Integer> idImageViews = new ArrayList<Integer>(Arrays.asList(
 			new Integer[] {
 					R.id.uid1, 
 					R.id.uid2,
@@ -51,11 +51,20 @@ public class ContactsActivity extends Activity {
 					R.id.uid5,
 					R.id.uid6
 			}));
+	ArrayList<Integer> idRemoveButtons = new ArrayList<Integer>(Arrays.asList(
+			new Integer[] {
+					R.id.rem1, 
+					R.id.rem2,
+					R.id.rem3,
+					R.id.rem4,
+					R.id.rem5,
+					R.id.rem6
+			}));
 	
 	class ContactListener implements View.OnClickListener {
 		@Override
 		public void onClick(View v) {
-			int userIndex = idList.indexOf(v.getId());
+			int userIndex = idImageViews.indexOf(v.getId());
 			
 			if(userIndex >= contacts.size() || userIndex < 0) {
 				return;
@@ -74,10 +83,22 @@ public class ContactsActivity extends Activity {
 	ContactListener contactListener = new ContactListener();
 	
 	private void addListenerContacts() {
-		for(int i : idList) {
+		for(int i : idImageViews) {
 			ImageView img = (ImageView) findViewById(i);
 			img.setOnClickListener(contactListener);
 		}
+		for(int i : idRemoveButtons) {
+			Button btn = (Button) findViewById(i);
+			btn.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					int userIndex = idRemoveButtons.indexOf(v.getId());
+					DataStorage.RemoveContact(contacts.get(userIndex).uid);
+					LoadContacts();
+				}
+			});
+		}
+		
 	}
 
 	private void addListenerBackButton() {
@@ -106,7 +127,7 @@ public class ContactsActivity extends Activity {
 	}
 
 	private void addListenerRemoveAllButton() {
-		((Button) findViewById(R.id.rem))
+		((Button) findViewById(R.id.removeAllContactsButton))
 				.setOnClickListener(new View.OnClickListener() {
 
 					@Override
@@ -127,7 +148,7 @@ public class ContactsActivity extends Activity {
 	int uids[] = new int[6];
 	
 	private void ClearContacts() {
-		for(int i : idList) {
+		for(int i : idImageViews) {
 			ImageView img = (ImageView) findViewById(i);
 			img.setVisibility(View.INVISIBLE);
 		}
@@ -143,20 +164,29 @@ public class ContactsActivity extends Activity {
 			if(index>=6) {
 				break;
 			}
-			ImageView img = (ImageView) findViewById(idList.get(index));
+			ImageView img = (ImageView) findViewById(idImageViews.get(index));
 			img.setImageBitmap(c.getImage());
 			img.setVisibility(View.VISIBLE);
+			Button btn = (Button) findViewById(idRemoveButtons.get(index));
+			btn.setVisibility(View.VISIBLE);
 			uids[index] = c.uid;
 			index++;
 		}
 		
+		if (index == 0) {
+			((Button) findViewById(R.id.removeAllContactsButton)).setVisibility(View.GONE);
+		}
+		
 		if(index >= 6) {
-			((Button) findViewById(R.id.addButton)).setVisibility(View.INVISIBLE);
+			((Button) findViewById(R.id.addButton)).setVisibility(View.GONE);
 		}
 		
 		for(;index<6; ++index) {
-			ImageView img = (ImageView) findViewById(idList.get(index));
+			ImageView img = (ImageView) findViewById(idImageViews.get(index));
 			img.setVisibility(View.INVISIBLE);
+			Button btn = (Button) findViewById(idRemoveButtons.get(index));
+			btn.setVisibility(View.INVISIBLE);
+			uids[index] = -1;
 		}
 		/*TableLayout tl = (TableLayout) findViewById(R.id.table);
 		tl.removeAllViews();
@@ -200,38 +230,38 @@ public class ContactsActivity extends Activity {
 		}*/
 	}
 
-	private void AddTableRow(final Contact c, final TableLayout tl,
-			final TableRow row) {
-		TableRow.LayoutParams lp = new TableRow.LayoutParams(
-				TableRow.LayoutParams.WRAP_CONTENT);
-		row.setLayoutParams(lp);
-		TextView tv = new TextView(this);
-		Button btn = new Button(this);
-		tv.setText(c.getName());
-		btn.setText("Remove");
-		row.addView(btn);
-		row.addView(tv);
-		tl.addView(row);
-		//mapRow.put(c.uid, row);
-		row.setOnClickListener(new View.OnClickListener() {
-			private int uid = c.uid;
-
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(self(), AddEditContactActivity.class);
-				i.putExtra("ID", uid);
-				startActivityForResult(i,
-						ADD_EDIT_CONTACT_ACTIVITY_REQUEST_CODE);
-			}
-		});
-		btn.setOnClickListener(new View.OnClickListener() {
-			private int uid = c.uid;
-
-			@Override
-			public void onClick(View v) {
-				if (DataStorage.RemoveContact(uid))
-					tl.removeView(row);
-			}
-		});
-	}
+//	private void AddTableRow(final Contact c, final TableLayout tl,
+//			final TableRow row) {
+//		TableRow.LayoutParams lp = new TableRow.LayoutParams(
+//				TableRow.LayoutParams.WRAP_CONTENT);
+//		row.setLayoutParams(lp);
+//		TextView tv = new TextView(this);
+//		Button btn = new Button(this);
+//		tv.setText(c.getName());
+//		btn.setText("Remove");
+//		row.addView(btn);
+//		row.addView(tv);
+//		tl.addView(row);
+//		//mapRow.put(c.uid, row);
+//		row.setOnClickListener(new View.OnClickListener() {
+//			private int uid = c.uid;
+//
+//			@Override
+//			public void onClick(View v) {
+//				Intent i = new Intent(self(), AddEditContactActivity.class);
+//				i.putExtra("ID", uid);
+//				startActivityForResult(i,
+//						ADD_EDIT_CONTACT_ACTIVITY_REQUEST_CODE);
+//			}
+//		});
+//		btn.setOnClickListener(new View.OnClickListener() {
+//			private int uid = c.uid;
+//
+//			@Override
+//			public void onClick(View v) {
+//				if (DataStorage.RemoveContact(uid))
+//					tl.removeView(row);
+//			}
+//		});
+//	}
 }

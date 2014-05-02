@@ -26,41 +26,77 @@
         android:layout_weight="1"
         android:src="@drawable/ic_launcher" >
 
-        <ImageView
-            android:id="@+id/uid1"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#ffff0000"
-            android:onClick="callSkypeView1"
-            android:src="@drawable/ic_launcher" />
+            android:layout_weight="1" >
 
-        <ImageView
-            android:id="@+id/uid2"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#169aff"
-            android:onClick="callSkypeView2"
-            android:src="@drawable/ic_launcher" />
+            <ImageView
+                android:id="@+id/uid1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffff0000"
+                android:src="@drawable/ic_launcher" />
 
-        <ImageView
-            android:id="@+id/uid3"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
+            <Button
+                android:id="@+id/rem1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid1"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#ffff0000"
-            android:onClick="callSkypeView3"
-            android:src="@drawable/ic_launcher" />
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/uid2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#169aff"
+                android:src="@drawable/ic_launcher" />
+
+            <Button
+                android:id="@+id/rem2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid2"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/uid3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffff0000"
+                android:src="@drawable/ic_launcher" />
+
+            <Button
+                android:id="@+id/rem3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid3"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -69,41 +105,77 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" >
 
-        <ImageView
-            android:id="@+id/uid4"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#169aff"
-            android:onClick="callSkypeView4"
-            android:src="@drawable/ic_launcher" />
+            android:layout_weight="1" >
 
-        <ImageView
-            android:id="@+id/uid5"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#ffff0000"
-            android:onClick="callSkypeView5"
-            android:src="@drawable/ic_launcher" />
+            <ImageView
+                android:id="@+id/uid4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#169aff"
+                android:src="@drawable/ic_launcher" />
 
-        <ImageView
-            android:id="@+id/uid6"
-            android:layout_width="100dp"
-            android:layout_height="280dp"
+            <Button
+                android:id="@+id/rem4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid4"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#169aff"
-            android:onClick="callSkypeView6"
-            android:src="@drawable/ic_launcher" />
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/uid5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffff0000"
+                android:src="@drawable/ic_launcher" />
+
+            <Button
+                android:id="@+id/rem5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid5"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/uid6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#169aff"
+                android:src="@drawable/ic_launcher" />
+
+            <Button
+                android:id="@+id/rem6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/uid6"
+                android:layout_marginTop="-40dp"
+                android:text="Remove" />
+        </RelativeLayout>
     </LinearLayout>
 
     <Button
@@ -113,7 +185,7 @@
         android:text="Create Contact" />
 
     <Button
-        android:id="@+id/rem"
+        android:id="@+id/removeAllContactsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remove All Contacts" />
