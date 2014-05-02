@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addeditcontactbackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.example.app_mainproject.AddEditContactActivity" >
+
+    <EditText
+        android:id="@+id/contactnameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/cameracapturebutton"
+        android:ems="10"
+        android:hint="@string/contactnamestring"
+        android:inputType="textPersonName"
+        android:maxLines="@integer/one" />
+
+    <EditText
+        android:id="@+id/skypeidET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/contactnameET"
+        android:layout_below="@+id/contactnameET"
+        android:ems="10"
+        android:hint="@string/skypeidstring"
+        android:inputType="text"
+        android:maxLines="@integer/one" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/cancelbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addupdatebutton"
+        android:layout_alignBottom="@+id/addupdatebutton"
+        android:layout_alignRight="@+id/skypeidET"
+        android:text="@string/cancelstring" />
+
+    <Button
+        android:id="@+id/cameracapturebutton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/contactnameET"
+        android:text="@string/cameracapturestring" />
+
+    <ImageView
+        android:id="@+id/contactpictureimageview"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_above="@+id/browsegallerybutton"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/contactpicturestring"
+        android:src="@drawable/ic_launcher" />
+
+    <Button
+        android:id="@+id/addupdatebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/skypeidET"
+        android:layout_below="@+id/positionET"
+        android:text="@string/addupdatestring" />
+
+    <EditText
+        android:id="@+id/positionET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/skypeidET"
+        android:layout_below="@+id/skypeidET"
+        android:ems="10"
+        android:hint="@string/position_string"
+        android:inputType="numberSigned" />
+
+    <Button
+        android:id="@+id/browsegallerybutton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/contactnameET"
+        android:layout_alignLeft="@+id/contactnameET"
+        android:text="@string/browsegallerystring" />
+
+</RelativeLayout>
+    

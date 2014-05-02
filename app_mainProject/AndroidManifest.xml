@@ -5,8 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    <uses-permission 
+        android:name="android.permission.CAMERA"/>
+    <uses-permission 
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission 
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,14 +20,30 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.app_mainproject.MainScreen"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_main_screen"
-            android:theme="@style/FullscreenTheme" >
+            android:name="com.example.app_mainproject.AddEditContactActivity"
+            android:label="@string/title_activity_add_edit_contact" 
+            android:screenOrientation="landscape">
+        </activity>
+        
+        <activity
+            android:name="com.example.app_mainproject.TestActivity"
+            android:label="@string/title_activity_test" 
+            android:screenOrientation="landscape">
+        </activity>
+        
+        <activity
+            android:name="com.example.app_mainproject.Home"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
-            android:name="com.example.app_mainproject.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:name="com.example.app_mainproject.OptionsMenu"
+            android:label="@string/title_activity_options_menu"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 
