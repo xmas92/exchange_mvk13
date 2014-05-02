@@ -2,7 +2,6 @@ package com.example.app_mainproject;
 
 
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 public class HomeActivity extends Activity {
 

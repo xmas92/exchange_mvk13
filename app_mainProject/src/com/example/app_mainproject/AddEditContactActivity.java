@@ -216,7 +216,8 @@ public class AddEditContactActivity extends Activity {
 	
 	private final int STORE_DATA_DIALOG = 100;
 	class StoreDataAsync extends AsyncTask<Object, Boolean, Intent>{
-	    @Override
+	    @SuppressWarnings("deprecation")
+		@Override
 	    protected void onPreExecute() {
 	        super.onPreExecute();
 	        // DIALOG_DOWNLOAD_PROGRESS is defined as 0 at start of class
@@ -255,7 +256,8 @@ public class AddEditContactActivity extends Activity {
 	    		mProgressDialog.setProgress(1);
 	    }
 
-	    @Override
+	    @SuppressWarnings("deprecation")
+		@Override
 	    protected void onPostExecute(Intent data) {
 	        dismissDialog(STORE_DATA_DIALOG);
 			if (data == null)
