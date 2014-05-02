@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">app_mainProject</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_options_menu">OptionsMenuActivity</string>
+    <string name="title_activity_add_edit_contact">AddEditContactActivity</string>
+    <string name="addupdatestring">Add/Update</string>
+    <string name="cancelstring">Cancel</string>
+    <string name="skypeidstring">Skype Id</string>
+    <string name="contactnamestring">Contact Name</string>
+    <string name="browsegallerystring">Browse</string>
+    <string name="cameracapturestring">Camera</string>
+    <string name="contactpicturestring">Contact Picture</string>
+    <string name="position_string">Position</string>
+
+</resources>
