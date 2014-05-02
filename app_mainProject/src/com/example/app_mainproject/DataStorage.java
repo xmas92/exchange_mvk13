@@ -27,7 +27,7 @@ public class DataStorage {
 	public static void init(Context context) {
 		helper = new SQLiteHelper(context);
 	}
-	
+
 	public static void Close() {
 		if (helper != null)
 			helper.close();
@@ -86,7 +86,7 @@ public class DataStorage {
 		Cursor c = DB().query(SQLiteHelper.TABLE_CONTACTS, allColumnsContact,
 				null, null, null, null, null);
 		if (c.moveToFirst())
-			do  {
+			do {
 				ret.add(cursorToContact(c));
 			} while (c.moveToNext());
 		return ret;
@@ -113,8 +113,9 @@ public class DataStorage {
 
 	private static Cursor queryKeyValueStore(String key) {
 		return DB().query(SQLiteHelper.TABLE_KEYVALUESTORE,
-				allColumnsKeyValueStore, SQLiteHelper.COLUMN_KEY + " = '?'",
-				new String[] { key }, null, null, null);
+				allColumnsKeyValueStore,
+				SQLiteHelper.COLUMN_KEY + " LIKE '" + key + "'", null, null, null,
+				null);
 	}
 
 	public static Integer GetInt(String key) {
@@ -147,9 +148,10 @@ public class DataStorage {
 		if (i == null)
 			return DeleteKey(key);
 		ContentValues values = new ContentValues();
-		values.put(key, ByteBuffer.allocate(4).putInt(i).array());
+		values.put(SQLiteHelper.COLUMN_KEY, key);
+		values.put(SQLiteHelper.COLUMN_VALUE, ByteBuffer.allocate(4).putInt(i).array());
 		int rem = DB().update(SQLiteHelper.TABLE_KEYVALUESTORE, values,
-				SQLiteHelper.COLUMN_KEY + " = '?'", new String[] { key });
+				SQLiteHelper.COLUMN_KEY + " LIKE '" + key + "'", null);
 		if (rem == 0) {
 			DB().insert(SQLiteHelper.TABLE_KEYVALUESTORE, null, values);
 		}
@@ -158,7 +160,7 @@ public class DataStorage {
 
 	private static boolean DeleteKey(String key) {
 		int rem = DB().delete(SQLiteHelper.TABLE_KEYVALUESTORE,
-				SQLiteHelper.COLUMN_KEY + " = '?'", new String[] { key });
+				SQLiteHelper.COLUMN_KEY + " LIKE '" + key + "'", null);
 		return rem != 0;
 	}
 
@@ -169,9 +171,10 @@ public class DataStorage {
 			return DeleteKey(key);
 		byte bool = (byte) (b ? 1 : 0);
 		ContentValues values = new ContentValues();
-		values.put(key, ByteBuffer.allocate(1).put(bool).array());
+		values.put(SQLiteHelper.COLUMN_KEY, key);
+		values.put(SQLiteHelper.COLUMN_VALUE, ByteBuffer.allocate(1).put(bool).array());
 		int rem = DB().update(SQLiteHelper.TABLE_KEYVALUESTORE, values,
-				SQLiteHelper.COLUMN_KEY + " = '?'", new String[] { key });
+				SQLiteHelper.COLUMN_KEY + " LIKE '" + key + "'", null);
 		if (rem == 0) {
 			DB().insert(SQLiteHelper.TABLE_KEYVALUESTORE, null, values);
 		}
@@ -184,9 +187,10 @@ public class DataStorage {
 		if (s == null)
 			return DeleteKey(key);
 		ContentValues values = new ContentValues();
-		values.put(key, s.getBytes());
+		values.put(SQLiteHelper.COLUMN_KEY, key);
+		values.put(SQLiteHelper.COLUMN_VALUE, s.getBytes());
 		int rem = DB().update(SQLiteHelper.TABLE_KEYVALUESTORE, values,
-				SQLiteHelper.COLUMN_KEY + " = '?'", new String[] { key });
+				SQLiteHelper.COLUMN_KEY + " LIKE '" + key + "'", null);
 		if (rem == 0) {
 			DB().insert(SQLiteHelper.TABLE_KEYVALUESTORE, null, values);
 		}
