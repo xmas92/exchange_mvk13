@@ -177,6 +177,10 @@ public class AddEditContactActivity extends Activity {
 		uid = extras.getInt("ID", -1);
 		if (uid != -1) {
 			Contact c = DataStorage.GetContact(uid);
+			if(c == null) {
+				Log.w("Contact", "Not found");
+				return;
+			}
 			((EditText) findViewById(R.id.contactnameET)).setText(c.getName());
 			((EditText) findViewById(R.id.skypeidET)).setText(c.getContactId());
 			((EditText) findViewById(R.id.positionET)).setText(Integer

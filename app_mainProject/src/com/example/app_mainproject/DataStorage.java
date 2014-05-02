@@ -82,7 +82,7 @@ public class DataStorage {
 	}
 
 	public static List<Contact> GetAllContacts() {
-		List<Contact> ret = new ArrayList<>();
+		List<Contact> ret = new ArrayList<Contact>();
 		Cursor c = DB().query(SQLiteHelper.TABLE_CONTACTS, allColumnsContact,
 				null, null, null, null, null);
 		if (c.moveToFirst())
