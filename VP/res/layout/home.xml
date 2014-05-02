@@ -6,19 +6,6 @@
     android:layout_weight="1"
     android:stretchColumns="0,1,2" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contact Settings"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Return to Settings" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
@@ -105,17 +92,5 @@
             android:onClick="callSkypeView6"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Contact" />
-
-    <Button
-        android:id="@+id/rem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remove All Contacts" />
 
 </TableLayout>
