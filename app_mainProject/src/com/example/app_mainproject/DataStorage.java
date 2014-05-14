@@ -25,12 +25,17 @@ public class DataStorage {
 			SQLiteHelper.COLUMN_KEY, SQLiteHelper.COLUMN_VALUE };
 
 	public static void init(Context context) {
-		helper = new SQLiteHelper(context);
+		if (helper == null)
+			helper = new SQLiteHelper(context);
 	}
 
 	public static void Close() {
-		if (helper != null)
+		if (helper != null) {
+			db.close();
 			helper.close();
+		}
+		db = null;
+		helper = null;
 	}
 
 	private static SQLiteDatabase DB() {

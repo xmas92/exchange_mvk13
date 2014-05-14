@@ -38,7 +38,6 @@ public class OptionsMenuActivity extends Activity {
 		        }
 		    });
 		    dialog.show();
-		    getWindow().getDecorView().setBackgroundColor(color);
 	}
 
 	public void goToContactsMenu(View view){

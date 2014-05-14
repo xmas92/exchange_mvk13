@@ -40,6 +40,10 @@ public class HomeActivity extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
+		Integer color = DataStorage.GetInt("themeColor");
+		if (color == null) color = 0x000000ff;
+	    getWindow().getDecorView().setBackgroundColor(color);
+	    
 		List<Contact> cl = DataStorage.GetAllContacts();
 		Collections.sort(cl);
 		int i = 0;
@@ -100,9 +104,6 @@ public class HomeActivity extends Activity {
 		// TODO REMOVE BELOW!
 //		DataStorage.Clear();
 		// TODO REMOVE ABOVE!
-		Integer color = DataStorage.GetInt("themeColor");
-		if (color == null) color = 0xff0000ff;
-	    getWindow().getDecorView().setBackgroundColor(color);
 		
 
 		//
