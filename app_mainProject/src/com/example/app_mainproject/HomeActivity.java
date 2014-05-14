@@ -41,7 +41,7 @@ public class HomeActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		Integer color = DataStorage.GetInt("themeColor");
-		if (color == null) color = 0x000000ff;
+		if (color == null) color = 0xffffffff;
 	    getWindow().getDecorView().setBackgroundColor(color);
 	    
 		List<Contact> cl = DataStorage.GetAllContacts();

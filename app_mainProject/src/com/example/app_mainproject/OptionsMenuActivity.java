@@ -23,7 +23,7 @@ public class OptionsMenuActivity extends Activity {
 	public void goToColorsMenu(View view){
 		//TODO
 		Integer color = DataStorage.GetInt("themeColor");
-		if (color == null) color = 0x000000ff;
+		if (color == null) color = 0xffffffff;
 		 AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, color,
 		            new AmbilWarnaDialog.OnAmbilWarnaListener() {
 		        @Override
