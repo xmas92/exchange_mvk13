@@ -132,7 +132,7 @@ public class ContactsActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						DataStorage.Clear();
+						DataStorage.ClearContacts();
 						ClearContacts();
 						//TableLayout tl = (TableLayout) findViewById(R.id.table);
 						//tl.removeAllViews();
@@ -153,7 +153,7 @@ public class ContactsActivity extends Activity {
 			img.setVisibility(View.INVISIBLE);
 		}
 		for (int i : idRemoveButtons) {
-			Button btn = (Button) findViewById(idRemoveButtons.get(i));
+			Button btn = (Button) findViewById(i);
 			btn.setVisibility(View.INVISIBLE);
 		}
 		((Button) findViewById(R.id.addButton)).setVisibility(View.VISIBLE);

@@ -20,13 +20,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "storage.db";
 	private static final int DATABASE_VERSION = 1;
 
-	private static final String DATABASE_CREATE_CONTACTS = "create table "
+	public static final String DATABASE_CREATE_CONTACTS = "create table "
 			+ TABLE_CONTACTS + "(" + COLUMN_ID
 			+ " integer primary key autoincrement, " + COLUMN_CONTACT_NAME
 			+ " text not null," + COLUMN_SKYPE_ID + " text not null,"
 			+ COLUMN_POSITION + " integer not null," + COLUMN_IMAGE
 			+ " blob not null" + ");";
-	private static final String DATABASE_CREATE_KEYVALUESTORE = "create table "
+	public static final String DATABASE_CREATE_KEYVALUESTORE = "create table "
 			+ TABLE_KEYVALUESTORE + "(" + COLUMN_KEY + " text primary key not null, "
 			+ COLUMN_VALUE + " blob not null" + ");";
 

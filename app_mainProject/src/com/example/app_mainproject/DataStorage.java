@@ -205,4 +205,9 @@ public class DataStorage {
 	public static void Clear() {
 		helper.onUpgrade(DB(), 1, 1);
 	}
+
+	public static void ClearContacts() {
+		DB().execSQL("DROP TABLE IF EXISTS " + SQLiteHelper.TABLE_CONTACTS);
+		DB().execSQL(SQLiteHelper.DATABASE_CREATE_CONTACTS);
+	}
 }
