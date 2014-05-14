@@ -16,6 +16,10 @@
     <string name="cameracapturestring">Camera</string>
     <string name="contactpicturestring">Contact Picture</string>
     <string name="position_string">Position</string>
+    <string name="remove_single_contact">Remove this contact?</string>
+    <string name="remove_all_contacts">Remove ALL contacts?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     
     
     <!-- Strings related to Settings -->
