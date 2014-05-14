@@ -148,8 +148,8 @@ public class ContactsActivity extends Activity {
 		
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Remove ALL contacts?").setPositiveButton("Yes", dialogClickListener)
-			.setNegativeButton("No", dialogClickListener).show();
+		builder.setMessage(R.string.remove_all_contacts).setPositiveButton(R.string.yes, dialogClickListener)
+			.setNegativeButton(R.string.no, dialogClickListener).show();
 	}
 		
 	void askUserAboutRemoveContact(final int uid) {
@@ -172,8 +172,8 @@ public class ContactsActivity extends Activity {
 			
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Remove this contact?").setPositiveButton("Yes", dialogClickListener)
-			.setNegativeButton("No", dialogClickListener).show();
+		builder.setMessage(R.string.remove_single_contact).setPositiveButton(R.string.yes, dialogClickListener)
+			.setNegativeButton(R.string.no, dialogClickListener).show();
 	}
 
 	private void addListenerRemoveAllButton() {
