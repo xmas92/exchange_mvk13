@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.Window;
 import android.widget.ImageView;
 
 public class HomeActivity extends Activity {
@@ -99,6 +100,10 @@ public class HomeActivity extends Activity {
 		// TODO REMOVE BELOW!
 //		DataStorage.Clear();
 		// TODO REMOVE ABOVE!
+		Integer color = DataStorage.GetInt("themeColor");
+		if (color == null) color = 0xff0000ff;
+	    getWindow().getDecorView().setBackgroundColor(color);
+		
 
 		//
 		findViewById(R.id.layout).setOnTouchListener(new OnTouchListener() {        

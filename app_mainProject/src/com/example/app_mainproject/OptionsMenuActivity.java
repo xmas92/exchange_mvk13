@@ -18,13 +18,12 @@ public class OptionsMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_options_menu);
 
-
 	}
 
 	public void goToColorsMenu(View view){
 		//TODO
 		Integer color = DataStorage.GetInt("themeColor");
-		if (color == null) color = 0xff0000ff;
+		if (color == null) color = 0x000000ff;
 		 AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, color,
 		            new AmbilWarnaDialog.OnAmbilWarnaListener() {
 		        @Override
@@ -39,6 +38,7 @@ public class OptionsMenuActivity extends Activity {
 		        }
 		    });
 		    dialog.show();
+		    getWindow().getDecorView().setBackgroundColor(color);
 	}
 
 	public void goToContactsMenu(View view){
