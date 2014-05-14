@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -93,8 +95,7 @@ public class ContactsActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					int userIndex = idRemoveButtons.indexOf(v.getId());
-					DataStorage.RemoveContact(contacts.get(userIndex).uid);
-					LoadContacts();
+					askUserAboutRemoveContact(contacts.get(userIndex).uid);
 				}
 			});
 		}
@@ -125,6 +126,55 @@ public class ContactsActivity extends Activity {
 					}
 				});
 	}
+	
+	void askUserAboutRemoveAll() {
+		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				switch (which){
+				case DialogInterface.BUTTON_POSITIVE:
+	            //	Yes button clicked
+					DataStorage.Clear();
+					ClearContacts();
+					LoadContacts();
+					break;
+					
+				case DialogInterface.BUTTON_NEGATIVE:
+	            //	No button clicked
+					break;
+				}
+			}
+		};
+		
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage("Remove ALL contacts?").setPositiveButton("Yes", dialogClickListener)
+			.setNegativeButton("No", dialogClickListener).show();
+	}
+		
+	void askUserAboutRemoveContact(final int uid) {
+		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				switch (which){
+				case DialogInterface.BUTTON_POSITIVE:
+					//	Yes button clicked
+					DataStorage.RemoveContact(uid);
+					LoadContacts();
+					break;
+				
+				case DialogInterface.BUTTON_NEGATIVE:
+					//	No button clicked
+					break;
+				}
+			}
+		};
+			
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage("Remove this contact?").setPositiveButton("Yes", dialogClickListener)
+			.setNegativeButton("No", dialogClickListener).show();
+	}
 
 	private void addListenerRemoveAllButton() {
 		((Button) findViewById(R.id.removeAllContactsButton))
@@ -132,11 +182,7 @@ public class ContactsActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						DataStorage.Clear();
-						ClearContacts();
-						//TableLayout tl = (TableLayout) findViewById(R.id.table);
-						//tl.removeAllViews();
-						//mapRow.clear();
+						askUserAboutRemoveAll();
 					}
 				});
 	}
@@ -153,7 +199,7 @@ public class ContactsActivity extends Activity {
 			img.setVisibility(View.INVISIBLE);
 		}
 		for (int i : idRemoveButtons) {
-			Button btn = (Button) findViewById(idRemoveButtons.get(i));
+			Button btn = (Button) findViewById(i);
 			btn.setVisibility(View.INVISIBLE);
 		}
 		((Button) findViewById(R.id.addButton)).setVisibility(View.VISIBLE);
