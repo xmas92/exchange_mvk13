@@ -96,6 +96,9 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.activity_home);
 		// Init SQLite Storage
 		DataStorage.init(getApplicationContext());
+		// TODO REMOVE BELOW!
+//		DataStorage.Clear();
+		// TODO REMOVE ABOVE!
 
 		//
 		findViewById(R.id.layout).setOnTouchListener(new OnTouchListener() {        
@@ -196,7 +199,7 @@ public class HomeActivity extends Activity {
 			skypeUriIntent.setClassName("com.skype.raider", "com.skype.raider.Main");
 
 			//Hard-coded, change to the skype username you want to call.
-			skypeUriIntent.setData(Uri.parse("skype:" + "joni.baitar" + "?call&video=true"));
+			skypeUriIntent.setData(Uri.parse("skype:" + profile3 + "?call&video=true"));
 			startActivity(skypeUriIntent);
 		}
 
@@ -211,7 +214,7 @@ public class HomeActivity extends Activity {
 			skypeUriIntent.setClassName("com.skype.raider", "com.skype.raider.Main");
 
 			//Hard-coded, change to the skype username you want to call.
-			skypeUriIntent.setData(Uri.parse("skype:" + "joni.baitar" + "?call&video=true"));
+			skypeUriIntent.setData(Uri.parse("skype:" + profile4 + "?call&video=true"));
 			startActivity(skypeUriIntent);
 		}
 
@@ -226,7 +229,7 @@ public class HomeActivity extends Activity {
 			skypeUriIntent.setClassName("com.skype.raider", "com.skype.raider.Main");
 
 			//Hard-coded, change to the skype username you want to call.
-			skypeUriIntent.setData(Uri.parse("skype:" + "joni.baitar" + "?call&video=true"));
+			skypeUriIntent.setData(Uri.parse("skype:" + profile5 + "?call&video=true"));
 			startActivity(skypeUriIntent);
 		}
 
@@ -241,7 +244,7 @@ public class HomeActivity extends Activity {
 			skypeUriIntent.setClassName("com.skype.raider", "com.skype.raider.Main");
 
 			//Hard-coded, change to the skype username you want to call.
-			skypeUriIntent.setData(Uri.parse("skype:" + "joni.baitar" + "?call&video=true"));
+			skypeUriIntent.setData(Uri.parse("skype:" + profile6 + "?call&video=true"));
 			startActivity(skypeUriIntent);
 		}
 

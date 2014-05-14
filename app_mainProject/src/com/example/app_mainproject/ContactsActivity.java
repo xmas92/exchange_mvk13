@@ -152,7 +152,12 @@ public class ContactsActivity extends Activity {
 			ImageView img = (ImageView) findViewById(i);
 			img.setVisibility(View.INVISIBLE);
 		}
+		for (int i : idRemoveButtons) {
+			Button btn = (Button) findViewById(idRemoveButtons.get(i));
+			btn.setVisibility(View.INVISIBLE);
+		}
 		((Button) findViewById(R.id.addButton)).setVisibility(View.VISIBLE);
+		((Button) findViewById(R.id.removeAllContactsButton)).setVisibility(View.GONE);
 	}
 
 	private void LoadContacts() {
@@ -175,10 +180,14 @@ public class ContactsActivity extends Activity {
 		
 		if (index == 0) {
 			((Button) findViewById(R.id.removeAllContactsButton)).setVisibility(View.GONE);
+		} else {
+			((Button) findViewById(R.id.removeAllContactsButton)).setVisibility(View.VISIBLE);
 		}
 		
 		if(index >= 6) {
 			((Button) findViewById(R.id.addButton)).setVisibility(View.GONE);
+		} else {
+			((Button) findViewById(R.id.addButton)).setVisibility(View.VISIBLE);
 		}
 		
 		for(;index<6; ++index) {

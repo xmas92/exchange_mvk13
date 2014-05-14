@@ -116,6 +116,7 @@ public class AddEditContactActivity extends Activity {
 				contactPictureBitmap = Bitmap.createBitmap(
 						contactPictureBitmap, x, 0, w - 2 * x, h);
 			}
+			contactPictureBitmap = Bitmap.createScaledBitmap(contactPictureBitmap, 720, 540, false);
 			((ImageView) findViewById(R.id.contactpictureimageview))
 					.setImageBitmap(contactPictureBitmap);
 			if (delete)
